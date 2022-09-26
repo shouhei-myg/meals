@@ -13,11 +13,18 @@
         </div>
       <% end %>
 
-      <%= form.label :title %>
+      <%= form.label :食品目 %>
       <%= form.text_field :title, class: 'input' %>
 
-      <%= form.label :content %>
-      <%= form.text_area :content, class: 'textarea', rows: 20, style: 'font-size:10px' %>
+      <%= form.label :写真 %><br>
+      <%= form.file_field :photo,  accept: "image/*", class: 'uploader_input' %><br>
+
+      <br>
+      <%= form.label :材料名 %>
+      <%= form.text_area :material, class: 'textarea', rows: 20, style: 'font-size:10px' %>
+      <br>
+      <%= form.label :作り方 %>
+      <%= form.text_area :make, class: 'textarea', rows: 20, style: 'font-size:10px' %>
 
       <div class="mt-5 pt-5">
         <%= form.submit class: 'button is-success' %>
