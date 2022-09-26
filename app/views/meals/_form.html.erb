@@ -1,0 +1,31 @@
+<div class="columns is-gapless">
+  <div class="column">
+    <%= form_with(model: [meal], local: true, class: 'mr-5') do |form| %>
+      <% if meal.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+
+          <ul>
+            <% meal.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'input' %>
+
+      <%= form.label :content %>
+      <%= form.text_area :content, class: 'textarea', rows: 20, style: 'font-size:10px' %>
+
+      <div class="mt-5 pt-5">
+        <%= form.submit class: 'button is-success' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="column">
+    <iframe width="100%" height="900" style="zoom:0.5;"><html></html></iframe>
+  </div>
+</div>
+
