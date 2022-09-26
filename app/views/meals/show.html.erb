@@ -8,13 +8,24 @@
 </div>
 
 <p>
-  <strong>Name:</strong>
+  <strong>食品名:</strong>
   <%= @meal.title %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @meal.contenta %>
+  <strong>写真:</strong>
+  
+  <%= image_tag @meal.photo.url %>
+</p>
+
+<p>
+  <strong>材料名:</strong>
+  <%= @meal.material.html_safe %>
+</p>
+
+<p>
+  <strong>作り方:</strong>
+  <%= @meal.make.html_safe %>
 </p>
 
 <div class="mt-5 pt-5">

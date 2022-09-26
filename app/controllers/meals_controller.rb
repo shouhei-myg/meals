@@ -22,7 +22,6 @@ class MealsController < ApplicationController
   # Meal /meals
   def create
     @meal = Meal.new(meal_params)
-
     if @meal.save
       redirect_to meal_path(@meal)
     else
@@ -52,6 +51,6 @@ private
   end
 
   def meal_params
-    params.require(:meal).permit(%i[title content])
+    params.require(:meal).permit(%i[title photo material make])
   end
 end

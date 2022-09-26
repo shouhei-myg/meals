@@ -10,6 +10,7 @@ gem "dalli", "~> 3.2"
 gem "connection_pool", "~> 2.2"
 gem "paranoia", "~> 2.6"
 gem 'bcrypt', '~> 3.1.18'
+gem 'carrierwave', '~> 2.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
