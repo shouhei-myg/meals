@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2022_09_27_022528) do
   create_table "materials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "material_name", default: "", null: false
     t.string "amount", default: "", null: false
-    t.string "approximate_price", default: "", null: false
+    t.string "price", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
