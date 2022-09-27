@@ -7,25 +7,26 @@
   </div>
 </div>
 
-<p>
-  <strong>食品名:</strong>
-  <%= @meal.title %>
-</p>
 
 <p>
-  <strong>写真:</strong>
-  
+  <strong>写真</strong><br>
+  <br>
   <%= image_tag @meal.photo.url %>
 </p>
-
+<br>
 <p>
-  <strong>材料名:</strong>
-  <%= @meal.material.html_safe %>
+  <strong>食品名</strong><br>
+  <%= @meal.title %>
 </p>
-
+<br>
 <p>
-  <strong>作り方:</strong>
-  <%= @meal.make.html_safe %>
+  <strong>材料名</strong><br>
+  <%=safe_join(@meal.material.split("\n"),tag(:br))%>
+</p>
+<br>
+<p>
+  <strong>作り方</strong><br>
+  <%=safe_join(@meal.make.split("\n"),tag(:br))%>
 </p>
 
 <div class="mt-5 pt-5">
