@@ -1,0 +1,26 @@
+<%= form_with(model: [material], local: true) do |form| %>
+    <% if material.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(material.errors.count, "error") %> prohibited this material from being saved:</h2>
+        <ul>
+          <% material.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <%= form.label :材料 %>
+    <%= form.text_field :material_name, required: true, class: 'input' %>
+
+    <%= form.label :量 %>
+    <%= form.text_field :amount, required: true, class: 'input' %>
+
+    <%= form.label :料金目安 %>
+    <%= form.text_field :price, class: 'input' %>
+
+    <div class="mt-5 pt-5">
+    <%= form.submit class: 'button is-success' %>
+    </div>
+  <% end %>
+  
