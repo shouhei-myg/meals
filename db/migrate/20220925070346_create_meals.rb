@@ -4,7 +4,6 @@ class CreateMeals < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.string :title
       t.string :photo
-      t.binary :material, limit: 3.gigabytes
       t.binary :make, limit: 3.gigabytes
       t.timestamps
     end

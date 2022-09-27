@@ -10,13 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_25_070346) do
+ActiveRecord::Schema.define(version: 2022_09_27_022528) do
+
+  create_table "materials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "material_name", default: "", null: false
+    t.string "amount", default: "", null: false
+    t.string "approximate_price", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "meal_materials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "meal_id"
+    t.bigint "materials_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["materials_id"], name: "index_meal_materials_on_materials_id"
+    t.index ["meal_id"], name: "index_meal_materials_on_meal_id"
+  end
 
   create_table "meals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
     t.string "photo"
-    t.binary "material", size: :long
     t.binary "make", size: :long
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -35,4 +51,6 @@ ActiveRecord::Schema.define(version: 2022_09_25_070346) do
     t.string "remember_token"
   end
 
+  add_foreign_key "meal_materials", "materials", column: "materials_id"
+  add_foreign_key "meal_materials", "meals"
 end
