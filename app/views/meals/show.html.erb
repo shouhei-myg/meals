@@ -19,11 +19,7 @@
   <%= @meal.title %>
 </p>
 <br>
-<p>
-  <strong>材料名</strong><br>
-  <%=safe_join(@meal.material.split("\n"),tag(:br))%>
-</p>
-<br>
+
 <p>
   <strong>作り方</strong><br>
   <%=safe_join(@meal.make.split("\n"),tag(:br))%>
