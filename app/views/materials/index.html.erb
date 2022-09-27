@@ -23,7 +23,7 @@
             
               <%= link_to '<i class="fas fa-file-alt"></i>'.html_safe, [material] %>
               <%= link_to '<i class="fas fa-pencil-alt ml-3"></i>'.html_safe, edit_material_path(material) %>
-              <%= link_to '<i class="far fa-trash-alt ml-3"></i>'.html_safe, [material], method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= button_to '削除', [user], method: :delete, form_class: "far fa-trash-alt" %>
             
           </td>
         </tr>
