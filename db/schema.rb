@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2022_09_28_032830) do
 
   create_table "atoms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.string "amount", default: "", null: false
+    t.string "unit", default: "", null: false
     t.string "price", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 2022_09_28_032830) do
 
   create_table "materials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.integer "meal_id"
+    t.string "amount", default: "", null: false
     t.integer "atom_id"
+    t.integer "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
