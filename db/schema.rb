@@ -10,23 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_27_022528) do
+ActiveRecord::Schema.define(version: 2022_09_28_032830) do
 
-  create_table "materials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "material_name", default: "", null: false
+  create_table "atoms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", default: "", null: false
     t.string "amount", default: "", null: false
     t.string "price", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "meal_materials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "meal_id"
-    t.bigint "material_id"
+  create_table "materials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.integer "meal_id"
+    t.integer "atom_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["material_id"], name: "index_meal_materials_on_material_id"
-    t.index ["meal_id"], name: "index_meal_materials_on_meal_id"
   end
 
   create_table "meals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -38,12 +37,6 @@ ActiveRecord::Schema.define(version: 2022_09_27_022528) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
@@ -51,6 +44,4 @@ ActiveRecord::Schema.define(version: 2022_09_27_022528) do
     t.string "remember_token"
   end
 
-  add_foreign_key "meal_materials", "materials"
-  add_foreign_key "meal_materials", "meals"
 end
