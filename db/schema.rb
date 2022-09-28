@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 2022_09_27_022528) do
 
   create_table "meal_materials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "meal_id"
-    t.bigint "materials_id"
+    t.bigint "material_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["materials_id"], name: "index_meal_materials_on_materials_id"
+    t.index ["material_id"], name: "index_meal_materials_on_material_id"
     t.index ["meal_id"], name: "index_meal_materials_on_meal_id"
   end
 
@@ -51,6 +51,6 @@ ActiveRecord::Schema.define(version: 2022_09_27_022528) do
     t.string "remember_token"
   end
 
-  add_foreign_key "meal_materials", "materials", column: "materials_id"
+  add_foreign_key "meal_materials", "materials"
   add_foreign_key "meal_materials", "meals"
 end
