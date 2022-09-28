@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2022_09_28_032830) do
   create_table "materials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "unit", null: false
-    t.string "price", null: false
+    t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_09_28_032830) do
   create_table "usages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "meal_id"
     t.integer "usage_id"
-    t.string "amount", null: false
+    t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

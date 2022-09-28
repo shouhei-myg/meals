@@ -3,7 +3,7 @@ class CreateUsages < ActiveRecord::Migration[6.1]
     create_table :usages do |t|
       t.integer :meal_id
       t.integer :usage_id
-      t.string :amount, null: false
+      t.integer :amount, null: false
       t.timestamps
     end
   end
