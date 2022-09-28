@@ -48,6 +48,6 @@ class MaterialsController < ApplicationController
     end
 
     def material_params
-      params.require(:material).permit(%i[material_name amount price])
+      params.require(:material).permit(%i[name unit price])
     end
 end
