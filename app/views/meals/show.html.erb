@@ -21,6 +21,24 @@
 <br>
 
 <p>
+  <strong>材料名</strong><br>
+  <%= @meal.usages[0].material.name %>
+</p>
+<br>
+
+<p>
+  <strong>使用量(g)</strong><br>
+  <%= @meal.usages[0].amount %>
+</p>
+<br>
+
+<p>
+  <strong>材料費</strong><br>
+  <%= @meal.usages[0].material.price.to_i / @meal.usages[0].material.unit.to_i * @meal.usages[0].amount.to_i %>
+</p>
+<br>
+
+<p>
   <strong>作り方</strong><br>
   <%=safe_join(@meal.make.split("\n"),tag(:br))%>
 </p>

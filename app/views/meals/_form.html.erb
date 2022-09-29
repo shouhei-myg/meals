@@ -17,7 +17,16 @@
       <%= form.text_field :title, class: 'input' %>
 
       <%= form.label :写真 %><br>
-      <%= form.file_field :photo,  accept: "image/*", class: 'uploader_input' %><br>
+      <%= form.file_field :photo,  accept: "image/*", class: 'uploader_input' %>
+      <br>
+      <br>
+
+      <%= form.fields_for :usages do |usage|   %>
+        <%= usage.label :材料名 %><br>
+        <%= usage.collection_select :material_id, Material.all, :id, :name %><br>
+        <%= usage.label :数量 %>
+        <%= usage.text_field :amount, required: true, class: 'input' %>
+      <% end %>
 
       <br>
       <%= form.label :作り方 %>
