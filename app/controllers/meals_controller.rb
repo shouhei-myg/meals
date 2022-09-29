@@ -13,7 +13,7 @@ class MealsController < ApplicationController
   # GET /meals/new
   def new
     @meal = Meal.new
-    # @material = @meal.materials.new
+    @usage = @meal.usages.new
   end
 
   # GET /meals/1/edit
@@ -23,11 +23,6 @@ class MealsController < ApplicationController
   # Meal /meals
   def create
     @meal = Meal.new(meal_params)
-    # material_params = meal_params['materials_attributes']['0']
-    # @material = @meal.materials.new
-    # @material.name = material_params['name']
-    # @material.unit = material_params['unit']
-    # @material.price = material_params['price']
     if @meal.save
       redirect_to meal_path(@meal)
     else
@@ -57,7 +52,6 @@ private
   end
 
   def meal_params
-    params.require(:meal).permit(%i[title photo password make])
-    # params.require(:meal).permit(:title, :photo, :make, materials_attributes: %i[name unit price])
+    params.require(:meal).permit(:title, :photo, :make, usages_attributes: %i[meal_id material_id amount])
   end
 end

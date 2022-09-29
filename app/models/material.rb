@@ -1,3 +1,3 @@
 class Material < ApplicationRecord
-  belongs_to :usage
+  has_one :usage
 end
