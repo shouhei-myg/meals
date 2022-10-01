@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
     before_action :set_meal, only: [:show, :edit, :update, :delete]
+    include ActionController::DataStreaming
 
   # GET /meals
   def index
@@ -23,6 +24,10 @@ class MealsController < ApplicationController
   # Meal /meals
   def create
     @meal = Meal.new(meal_params)
+    if @meal.photo != nil
+          @meal.photo = @meal.photo.read
+    end
+
     if @meal.save
       redirect_to meal_path(@meal)
     else
@@ -45,10 +50,15 @@ class MealsController < ApplicationController
     redirect_to meals_path
   end
 
+  def show_image
+    @image = Meal.find(params[:meal_id])
+    send_data @image.photo, type: 'image/jpeg', disposition: 'inline'
+  end
+
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_meal
-    @meal = Meal.find(params[:id])
+    @meal = Meal.find(params[:meal_id])
   end
 
   def meal_params
