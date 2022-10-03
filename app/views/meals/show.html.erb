@@ -11,7 +11,7 @@
 <p>
   <strong>写真</strong><br>
   <br>
-  <%= image_tag @meal.photo %>
+  <%= image_tag show_image_meal_path(@meal) %>
 </p>
 <br>
 <p>
@@ -34,7 +34,7 @@
 
 <p>
   <strong>材料費</strong><br>
-  <%= @meal.usages[0].material.price.to_i / @meal.usages[0].material.unit.to_i * @meal.usages[0].amount.to_i %>
+  <%= @meal.usages[0].material.price.to_i / @meal.usages[0].material.unit.to_i * @meal.usages[0].amount.to_i %>円
 </p>
 <br>
 

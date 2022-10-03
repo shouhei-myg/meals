@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-    before_action :set_meal, only: [:show, :edit, :update, :delete]
+  before_action :set_meal, only: [:show, :edit, :update, :delete]
 
   # GET /meals
   def index
@@ -23,6 +23,10 @@ class MealsController < ApplicationController
   # Meal /meals
   def create
     @meal = Meal.new(meal_params)
+    if @meal.photo != nil
+          @meal.photo = @meal.photo.read
+    end
+
     if @meal.save
       redirect_to meal_path(@meal)
     else
@@ -45,10 +49,17 @@ class MealsController < ApplicationController
     redirect_to meals_path
   end
 
-private
+  def show_image
+    image = Meal.find params[:meal_id]
+    ext = 'image/jpeg'
+    render plain: image.photo, layout: false, content_type: ext
+  end
+
+  private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_meal
-    @meal = Meal.find(params[:id])
+    @meal = Meal.find(params[:meal_id])
   end
 
   def meal_params
