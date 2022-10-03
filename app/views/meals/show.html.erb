@@ -7,11 +7,10 @@
   </div>
 </div>
 
-
 <p>
   <strong>写真</strong><br>
   <br>
-  <%= image_tag @meal.photo %>
+  <%=image_tag @meal.photo.url %>
 </p>
 <br>
 <p>
@@ -33,7 +32,7 @@
 <br>
 
 <p>
-  <strong>材料費</strong><br>
+  <strong>材料費(円)</strong><br>
   <%= @meal.usages[0].material.price.to_i / @meal.usages[0].material.unit.to_i * @meal.usages[0].amount.to_i %>
 </p>
 <br>

@@ -1,6 +1,7 @@
 Jets.application.configure do
   config.project_name = "meals"
   config.mode = "html"
+  # config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
 
   config.prewarm.enable = true # default is true
   # config.prewarm.rate = '30 minutes' # default is '30 minutes'
