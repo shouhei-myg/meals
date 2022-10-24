@@ -20,23 +20,23 @@
 </p>
 <br>
 
-<p>
-  <strong>材料名</strong><br>
-  <%= @meal.usages[0].material.name %>
-</p>
-<br>
-
-<p>
-  <strong>使用量(g)</strong><br>
-  <%= @meal.usages[0].amount %>
-</p>
-<br>
-
-<p>
-  <strong>材料費</strong><br>
-  <%= @meal.usages[0].material.price.to_i / @meal.usages[0].material.unit.to_i * @meal.usages[0].amount.to_i %>円
-</p>
-<br>
+<table>
+  <tr>
+    <th>材料名</th>
+    <th>使用量(g)</th>
+    <th>材料費</th>
+  </tr>
+  <tr>
+    <td><%= @meal.usages[0].material.name %></td>
+    <td><%= @meal.usages[0].amount %></td>
+    <td><%= @meal.usages[0].material.price.to_i / @meal.usages[0].material.unit.to_i * @meal.usages[0].amount.to_i %>円</td>
+  </tr>
+  <tr>
+    <td><%= @meal.usages[1].material.name %></td>
+    <td><%= @meal.usages[1].amount %></td>
+    <td><%= @meal.usages[1].material.price.to_i / @meal.usages[1].material.unit.to_i * @meal.usages[1].amount.to_i %>円</td>
+  </tr>
+</table>
 
 <p>
   <strong>作り方</strong><br>

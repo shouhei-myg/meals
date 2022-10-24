@@ -21,12 +21,28 @@
       <br>
       <br>
 
-      <%= form.fields_for :usages do |usage|   %>
-        <%= usage.label :材料名 %><br>
-        <%= usage.collection_select :material_id, Material.all, :id, :name %><br>
-        <%= usage.label :数量 %>
-        <%= usage.text_field :amount, required: true, class: 'input' %>
+    <table>
+      <thead>
+        <tr>
+          <th>材料名</th>
+          <th>数量</th>
+        </tr>
+      </thead>
+      <tbody class="bulk-registration-form">
+      <%= form.fields_for :usages do |usage| %>
+        <tr>
+          <td><%= usage.collection_select :material_id, Material.all, :id, :name %></td>
+          <td><%= usage.text_field :amount, required: true, class: 'input' %></td>
+        </tr>
       <% end %>
+      <%= form.fields_for :usages do |usage| %>
+        <tr>
+          <td><%= usage.collection_select :material_id, Material.all, :id, :name %></td>
+          <td><%= usage.text_field :amount, required: true, class: 'input' %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
       <br>
       <%= form.label :作り方 %>
