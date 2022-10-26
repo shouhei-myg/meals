@@ -7,7 +7,6 @@
   </div>
 </div>
 
-
 <p>
   <strong>写真</strong><br>
   <br>
@@ -26,18 +25,17 @@
     <th>使用量(g)</th>
     <th>材料費</th>
   </tr>
+  <% @meal.usages.each do |usage| %>
+    <% p @meal.usages %>
+    <% p usage %>
   <tr>
-    <td><%= @meal.usages[0].material.name %></td>
-    <td><%= @meal.usages[0].amount %></td>
-    <td><%= @meal.usages[0].material.price.to_i / @meal.usages[0].material.unit.to_i * @meal.usages[0].amount.to_i %>円</td>
+    <td><%= usage.material.name %></td>
+    <td><%= usage.amount %></td>
+    <td><%= usage.material.price.to_i / usage.material.unit.to_i * usage.amount.to_i %>円</td>
   </tr>
-  <tr>
-    <td><%= @meal.usages[1].material.name %></td>
-    <td><%= @meal.usages[1].amount %></td>
-    <td><%= @meal.usages[1].material.price.to_i / @meal.usages[1].material.unit.to_i * @meal.usages[1].amount.to_i %>円</td>
-  </tr>
+  <% end %>
 </table>
-
+<br>
 <p>
   <strong>作り方</strong><br>
   <%=safe_join(@meal.make.split("\n"),tag(:br))%>
