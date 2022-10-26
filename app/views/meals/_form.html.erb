@@ -29,17 +29,13 @@
         </tr>
       </thead>
       <tbody class="bulk-registration-form">
-      <%= form.fields_for :usages do |usage| %>
-        <tr>
-          <td><%= usage.collection_select :material_id, Material.all, :id, :name %></td>
-          <td><%= usage.text_field :amount, required: true, class: 'input' %></td>
-        </tr>
-      <% end %>
-      <%= form.fields_for :usages do |usage| %>
-        <tr>
-          <td><%= usage.collection_select :material_id, Material.all, :id, :name %></td>
-          <td><%= usage.text_field :amount, required: true, class: 'input' %></td>
-        </tr>
+      <% 10.times do %>
+        <%= form.fields_for :usages do |usage| %>
+          <tr>
+            <td><%= usage.collection_select :material_id, Material.all, :id, :name %></td>
+            <td><%= usage.text_field :amount, required: true, class: 'input' %></td>
+          </tr>
+        <% end %>
       <% end %>
       </tbody>
     </table>
