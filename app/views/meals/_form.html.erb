@@ -29,11 +29,11 @@
         </tr>
       </thead>
       <tbody class="bulk-registration-form">
-      <% 10.times do %>
+      <% 2.times do %>
         <%= form.fields_for :usages do |usage| %>
           <tr>
-            <td><%= usage.collection_select :material_id, Material.all, :id, :name %></td>
-            <td><%= usage.text_field :amount, required: true, class: 'input' %></td>
+            <td><%= usage.collection_select :material_id, Material.all, :id, :name, prompt: "選択してください" %></td>
+            <td><%= usage.text_field :amount, class: 'input' %></td>
           </tr>
         <% end %>
       <% end %>

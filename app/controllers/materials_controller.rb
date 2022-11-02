@@ -37,8 +37,13 @@ class MaterialsController < ApplicationController
 
   # DELETE /materials/1
   def delete
-    @material.destroy
-    redirect_to materials_path
+    if @material.destroy
+      redirect_to materials_path
+    else
+      @error_message = "使用中のため削除できません"
+      @materials = Material.all
+      render :index
+    end
   end
 
   private
