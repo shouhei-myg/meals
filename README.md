@@ -1,11 +1,39 @@
-# Jets Project
+# meals PJ
 
-This README would normally document whatever steps are necessary to get the application up and running.
+## local start
 
-Things you might want to cover:
+### gem install
 
-* Dependencies
-* Configuration
-* Database setup
-* How to run the test suite
-* Deployment instructions
+```
+$ gem install jets
+$ bundle install
+```
+
+### change .env file
+
+.env.development
+.env.test
+
+```
+DATABASE_URL=mysql2://root:password@127.0.0.1:3306/meals?pool=5
+```
+
+### create and execute migration
+
+```
+$ jets db:create db:migrate
+```
+
+### start
+
+```
+$ jets s
+```
+
+### note
+
+If you get an "Prepending `bundle exec` to your command may solve this." err
+
+```
+$ bundle exec "command"
+```
